@@ -11,9 +11,34 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
+    'modules' => [
+        'v1' => [
+            'class' => 'app\modules\v1\Api',
+        ],
+    ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ],
+        ],
+        'response' => [
+            'formatters' => [
+                \yii\web\Response::FORMAT_JSON => [
+                    'class' => 'yii\web\JsonResponseFormatter',
+                    'prettyPrint' => YII_DEBUG,
+                ],
+            ],
+            // delete throw description inside response
+            'on beforeSend' => function ($event) {
+                if (!$event->sender->isSuccessful 
+                    &&
+                    isset($event->sender->data['type'])
+                ) {
+                    unset($event->sender->data['type']);
+                }
+            },
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -36,14 +61,21 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
+            //'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
+                [   
+                    'class' => 'yii\rest\UrlRule', 
+                    'controller' => ['v1/user' => 'v1/user'],
+                    'only' => ['view'],
+                    //'pluralize' => false,
+                    //'except' => ['delete'],
+                ],
+                //['GET users/<id>' => 'v1/user/view',]
             ],
         ],
-        */
     ],
     'params' => $params,
 ];
