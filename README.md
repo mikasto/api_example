@@ -9,7 +9,7 @@ Install
 
 Users
 ---
-Use link http://localhost:20080/user to view all users. You need authorisation by test:test.
+Use link http://localhost:21080/user to view all users. You need authorisation by test:test.
 Need copy auth_key & id for using API next steps.
 
 Test #1:
