@@ -13,6 +13,7 @@ services:
       - ./:/app
     links:
       - mysql
+      - backend
 
   backend:
     build: backend/
