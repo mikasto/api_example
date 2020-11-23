@@ -27,8 +27,6 @@ services:
     links:
       - mysql
     entrypoint: bash -c "composer install && /usr/local/bin/php yii migrate --interactive 0"
-    #entrypoint: ["composer", "install"]
-    #command: ["echo", "!!!!!!!! Container_A is available now !!!!!!!!"]
 
   mysql:
     image: mysql:5.7
