@@ -3,9 +3,7 @@ Shows creating JSON REST API by Yii2 Framework
 
 Install
 ---
-1. Use "git clone .." to copy project
-2. Use "docker-compose up -d" inside project's main directory (you need to instal docker software)
-3. Check ready can see page http://localhost:20080/ not fail with required "./vendor/autoload.php". Need to wait for composer loading all vendors.
+1. Use "docker-compose up -d --build && docker-compose exec backend composer install && docker-compose exec backend /usr/local/bin/php yii migrate --interactive 0" inside project's main directory (you need to instal docker software)
 
 Users
 ---
