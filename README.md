@@ -1,5 +1,5 @@
-# api_example
-Shows creating JSON REST API by Yii2 Framework
+# Example of REST API on Yii2
+Shows creating JSON REST API by Yii2 Framework (not for production)
 
 Install
 ---
