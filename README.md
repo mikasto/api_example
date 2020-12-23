@@ -8,9 +8,9 @@ Install
 Users
 ---
 Use link http://localhost:21080/user to view all users. You need authorisation by test:test.
-Need copy auth_key & id for using API next steps.
+Need view one of users and copy {auth_key}, {id} for using at API tests next steps.
 
-Test #1:
+API Test #1:
 ---
 <pre>
 curl --location --request GET 'http://localhost:20080/v1/user/{id}' \
